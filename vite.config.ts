@@ -7,16 +7,25 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [
-    tsConfigPaths({ projects: ["./tsconfig.json"] }),
+    tsConfigPaths({
+      projects: ["./tsconfig.json"],
+    }),
     tailwindcss(),
     tanstackStart(),
     viteReact(),
   ],
+
+  // ✅ VERY IMPORTANT (build output fix)
+  build: {
+    outDir: "dist",
+  },
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
   server: {
     port: 5173,
   },
