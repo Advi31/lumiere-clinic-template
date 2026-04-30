@@ -102,3 +102,4 @@ Edit the `head()` block in `src/routes/__root.tsx` (title, description, OpenGrap
 ## 📄 License
 
 See `LICENSE.txt`. Personal & commercial use allowed. Redistribution / reselling of the template files is not permitted.
+update deploy
