@@ -1,0 +1,45 @@
+LUMIÈRE CLINIC TEMPLATE — LICENSE AGREEMENT
+
+Copyright (c) 2026. All rights reserved.
+
+By purchasing, downloading, or using this template ("Template"), you agree
+to the terms below.
+
+1. PERMITTED USE
+   You may use this Template for:
+   a. Personal projects (portfolios, personal websites, learning).
+   b. Commercial projects (client work, your own business website,
+      paid products and services).
+   c. Unlimited end-user deployments of websites built with this Template.
+   d. Modifying, customizing, and adapting the source code to fit your needs.
+
+2. PROHIBITED USE
+   You MAY NOT:
+   a. Resell, redistribute, sublicense, or share the original Template files
+      (in whole or in substantial part) as a template, theme, starter kit,
+      boilerplate, or any similar product — whether free or paid.
+   b. Upload the Template source to any public repository, marketplace,
+      template gallery, or file-sharing platform.
+   c. Claim authorship or original ownership of the Template design or code.
+   d. Use the Template to create a competing template product.
+
+3. DERIVATIVE WORKS
+   Websites and applications you build using this Template are yours.
+   You retain full rights to your custom content, your branding, and any
+   substantive modifications you make. The underlying Template structure
+   remains covered by this License.
+
+4. THIRD-PARTY ASSETS
+   Fonts (Fraunces, Inter) are provided by Google Fonts under the SIL Open
+   Font License. Icons from lucide-react are MIT-licensed. Open-source
+   dependencies retain their respective licenses.
+
+5. NO WARRANTY
+   THE TEMPLATE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED. THE AUTHORS SHALL NOT BE LIABLE FOR ANY CLAIM, DAMAGES, OR
+   OTHER LIABILITY ARISING FROM THE USE OF THE TEMPLATE.
+
+6. TERMINATION
+   This License terminates automatically if you breach any of its terms.
+   Upon termination, you must cease all use and delete all copies of the
+   Template files in your possession.

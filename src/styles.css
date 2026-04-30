@@ -1,0 +1,419 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+  --color-whatsapp: var(--whatsapp);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+}
+
+:root {
+  --radius: 0.875rem;
+  /* Luxury cream + obsidian palette */
+  --background: oklch(0.985 0.006 80);
+  --foreground: oklch(0.18 0.01 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 60);
+  --primary: oklch(0.18 0.01 60);
+  --primary-foreground: oklch(0.985 0.006 80);
+  --secondary: oklch(0.95 0.012 75);
+  --secondary-foreground: oklch(0.18 0.01 60);
+  --muted: oklch(0.95 0.012 75);
+  --muted-foreground: oklch(0.48 0.012 65);
+  --accent: oklch(0.78 0.10 75);   /* warm gold */
+  --accent-foreground: oklch(0.18 0.01 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0.006 80);
+  --border: oklch(0.9 0.012 75);
+  --input: oklch(0.92 0.012 75);
+  --ring: oklch(0.78 0.10 75);
+
+  --gold: oklch(0.78 0.10 75);
+  --gold-soft: oklch(0.88 0.06 80);
+  --ink: oklch(0.14 0.012 60);
+  --whatsapp: oklch(0.68 0.17 152);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.99 0.005 85) 0%, oklch(0.93 0.03 75) 100%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.82 0.10 78) 0%, oklch(0.72 0.12 65) 100%);
+  --gradient-dark: linear-gradient(160deg, oklch(0.18 0.01 60) 0%, oklch(0.12 0.012 50) 100%);
+
+  --shadow-luxe: 0 30px 80px -30px oklch(0.18 0.01 60 / 0.25);
+  --shadow-soft: 0 10px 40px -15px oklch(0.18 0.01 60 / 0.18);
+  --shadow-glow: 0 0 60px oklch(0.78 0.10 75 / 0.35);
+
+  --glass-bg: oklch(1 0 0 / 0.65);
+  --glass-border: oklch(1 0 0 / 0.4);
+
+  --font-display: 'Fraunces', 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Premium global polish — smooth scroll, focus, momentum */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+body { overscroll-behavior-y: none; }
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+  }
+  .glass-dark {
+    background: oklch(0.18 0.01 60 / 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid oklch(1 0 0 / 0.08);
+  }
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-gold { background: var(--gradient-gold); }
+  .bg-gradient-dark { background: var(--gradient-dark); }
+
+  /* Desktop-only dark gradient surface (custom utilities don't get
+     responsive variants in Tailwind v4 layered CSS — use a media query). */
+  @media (min-width: 1024px) {
+    .lg-bg-gradient-dark { background: var(--gradient-dark); }
+  }
+  .shadow-luxe { box-shadow: var(--shadow-luxe); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+
+  @keyframes float-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-float-up { animation: float-up 0.8s ease-out forwards; }
+
+  @keyframes pulse-soft {
+    0%, 100% { box-shadow: 0 0 0 0 oklch(0.68 0.17 152 / 0.5); }
+    50% { box-shadow: 0 0 0 18px oklch(0.68 0.17 152 / 0); }
+  }
+  .animate-pulse-soft { animation: pulse-soft 2s infinite; }
+
+  /* Section rhythm — Apple-style breathing room */
+  .section { padding-top: 7rem; padding-bottom: 7rem; }
+  @media (min-width: 640px) { .section { padding-top: 9rem; padding-bottom: 9rem; } }
+  @media (min-width: 1024px) { .section { padding-top: 11rem; padding-bottom: 11rem; } }
+
+  .container-luxe { max-width: 80rem; margin-inline: auto; padding-inline: 1.5rem; }
+  @media (min-width: 640px) { .container-luxe { padding-inline: 2rem; } }
+  @media (min-width: 1024px) { .container-luxe { padding-inline: 3rem; } }
+
+  /* Offset anchored jumps so sticky header never overlaps section content */
+  section[id] { scroll-margin-top: 5rem; }
+  @media (min-width: 1024px) { section[id] { scroll-margin-top: 6.5rem; } }
+
+  .eyebrow {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .h-display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .lede {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--muted-foreground);
+    max-width: 36rem;
+  }
+
+  /* Button system */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 0.95rem 1.6rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--ink); color: var(--primary-foreground); box-shadow: var(--shadow-soft); }
+  .btn { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, background 0.35s ease, filter 0.35s ease; will-change: transform; }
+  .btn:hover { transform: translateY(-2px) scale(1.03); }
+  .btn:active { transform: translateY(0) scale(0.985); transition-duration: 0.12s; }
+  .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px oklch(0.78 0.10 75 / 0.45), var(--shadow-soft); }
+  .btn-primary:hover { box-shadow: var(--shadow-luxe), 0 0 40px oklch(0.78 0.10 75 / 0.25); filter: brightness(1.08); }
+  .btn-gold { background: var(--gradient-gold); color: var(--ink); box-shadow: var(--shadow-glow); }
+  .btn-gold:hover { box-shadow: 0 0 70px oklch(0.78 0.10 75 / 0.55), var(--shadow-luxe); filter: brightness(1.05); }
+  .btn-ghost { background: transparent; color: var(--foreground); border: 1px solid var(--border); }
+  .btn-ghost:hover { background: var(--secondary); border-color: var(--gold); }
+
+  /* Card lift — apply to interactive cards via .card-lift */
+  .card-lift { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease; will-change: transform; }
+  .card-lift:hover { transform: translateY(-4px) scale(1.012); box-shadow: var(--shadow-luxe); }
+
+  /* Form input focus glow */
+  input:focus, textarea:focus, select:focus { outline: none; }
+  input, textarea, select { transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; }
+  input:focus-visible, textarea:focus-visible, select:focus-visible {
+    box-shadow: 0 0 0 3px oklch(0.78 0.10 75 / 0.25);
+  }
+
+  /* Scroll reveal — sections fade/slide in */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* Staggered child elements inside a `.reveal` container */
+  .reveal-child {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-child.is-visible { opacity: 1; transform: none; }
+
+  /* Word-by-word headline reveal */
+  .reveal-words { display: inline; }
+  .reveal-word {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    line-height: inherit;
+  }
+  .reveal-word-inner {
+    display: inline-block;
+    transform: translateY(110%);
+    opacity: 0;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.45s ease-out;
+    will-change: transform, opacity;
+  }
+  .reveal-word.is-visible .reveal-word-inner { transform: none; opacity: 1; }
+
+  /* Hero subtle ken-burns zoom */
+  @keyframes ken-burns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.06); }
+  }
+  .animate-ken-burns { animation: ken-burns 18s ease-in-out infinite alternate; }
+
+  /* ---------------------------------------------------------------
+   * Mobile & tablet refinements (desktop ≥1024px untouched)
+   * --------------------------------------------------------------- */
+  @media (max-width: 1023px) {
+    /* Slightly tighter, comfier section rhythm on small screens */
+    .section { padding-top: 5rem; padding-bottom: 5rem; }
+
+    /* Prevent sticky header from covering anchored sections on hash navigation */
+    section[id] { scroll-margin-top: 6rem; }
+
+    /* Heading scaling — prevent overflow on narrow viewports */
+    .h-display {
+      font-size: clamp(2rem, 8.4vw, 3.25rem);
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+    }
+
+    /* Lede sizing for readability */
+    .lede { font-size: 1rem; line-height: 1.6; }
+  }
+
+  @media (max-width: 639px) {
+    /* Thumb-friendly buttons on mobile: larger tap area, full-width
+     * only for primary CTA stacks. Header / inline pills opt out via
+     * existing utility overrides (e.g. !py-2.5) or the .btn-inline class. */
+    .btn {
+      padding: 1.05rem 1.5rem;
+      font-size: 0.95rem;
+      min-height: 52px;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .h-display { font-size: clamp(2.5rem, 6.4vw, 3.75rem); }
+  }
+
+  /* Smooth touch interactions for draggable comparators */
+  .touch-pan-none { touch-action: none; -webkit-user-select: none; user-select: none; }
+
+  /* ---------------------------------------------------------------
+   * Device-adaptive motion
+   * Desktop (hover-capable, fine pointer): full animations.
+   * Touch / coarse-pointer devices: lighter, tap-driven only.
+   * --------------------------------------------------------------- */
+  @media (hover: none), (pointer: coarse) {
+    /* Disable hover-driven transforms — prevents stuck states after tap */
+    .btn:hover { transform: none; filter: none; box-shadow: var(--shadow-soft); }
+    .btn-primary:hover { box-shadow: var(--shadow-soft); filter: none; }
+    .btn-gold:hover { box-shadow: var(--shadow-glow); filter: none; }
+    .btn-ghost:hover { background: transparent; border-color: var(--border); }
+
+    /* Tap feedback only — quick press */
+    .btn:active { transform: scale(0.97); transition-duration: 0.12s; }
+    .btn-gold:active { box-shadow: 0 0 50px oklch(0.78 0.10 75 / 0.5), var(--shadow-luxe); }
+
+    /* Cards: no hover lift on touch; subtle tap feedback only */
+    .card-lift:hover { transform: none; box-shadow: var(--shadow-soft); }
+    .card-lift:active { transform: scale(0.99); transition-duration: 0.15s; }
+
+    /* Lighter reveal motion on mobile/tablet */
+    .reveal { transform: translateY(14px); transition-duration: 0.45s; }
+    .reveal-child { transform: translateY(10px); transition-duration: 0.4s; }
+
+    /* Skip word-by-word splitting cost: animate the whole headline */
+    .reveal-word { display: inline; overflow: visible; }
+    .reveal-word-inner { transform: none; opacity: 1; }
+
+    /* Disable expensive looping animations on touch devices */
+    .animate-ken-burns { animation: none; }
+  }
+}
